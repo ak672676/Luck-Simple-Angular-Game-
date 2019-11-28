@@ -1,21 +1,82 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
-    Welcome to {{ title }}!
-  </h1>
-  <img width="300" alt="Angular Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
-</div>
-<h2>Here are some links to help you start: </h2>
-<ul>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/tutorial">Tour of Heroes</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/cli">CLI Documentation</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://blog.angular.io/">Angular blog</a></h2>
-  </li>
-</ul>
+<div class="container">
+  <h1>CHECK YOUR LUCK</h1>
+  <br />
+  <div class="row">
+    <div class="col-sm-4">
+      <p class="para">Attempts: {{ attempts }} / 10</p>
+    </div>
 
-<router-outlet></router-outlet>
+    <div class="col-sm-4"></div>
+
+    <div class="col-sm-4">
+      <p class="score para">LuckyAttempts : {{ luckyAttempt }}</p>
+      <br />
+      <p class="score para">WorngAttempts : {{ worngAttempt }}</p>
+    </div>
+  </div>
+
+  <br />
+  <div class="row ">
+    <p class="para" style="text-align: center;">
+      Guess the Number <span class="number">{{ selectedNumber }}</span>
+    </p>
+  </div>
+
+  <div class="row ">
+    <div
+      [ngClass]="{
+        'col-sm-4': attempts !== 10 || attempts == 10,
+        box: attempts !== 10 || attempts === 10,
+        disablePointer: attempts === 10,
+        bggreen: selectedNumber === guess1 && guessNumber === guess1
+      }"
+      (click)="onClick(guess1)"
+    >
+      <p class="centreText" style="color: black;" *ngIf="!clickedCard">
+        ?
+      </p>
+      <p class="centreText" *ngIf="clickedCard">{{ guess1 }}</p>
+    </div>
+
+    <div
+      [ngClass]="{
+        'col-sm-4': attempts !== 10 || attempts == 10,
+        box: attempts !== 10 || attempts === 10,
+        disablePointer: attempts === 10,
+        bggreen: selectedNumber === guess2 && guessNumber === guess2
+      }"
+      (click)="onClick(guess2)"
+    >
+      <p class="centreText" style="color: black;" *ngIf="!clickedCard">?</p>
+      <p class="centreText" *ngIf="clickedCard">{{ guess2 }}</p>
+    </div>
+
+    <div
+      [ngClass]="{
+        'col-sm-4': attempts !== 10 || attempts == 10,
+        box: attempts !== 10 || attempts === 10,
+        disablePointer: attempts === 10,
+        bggreen: selectedNumber === guess3 && guessNumber === guess3
+      }"
+      (click)="onClick(guess3)"
+    >
+      <p class="centreText" style="color: black;" *ngIf="!clickedCard">?</p>
+      <p class="centreText" *ngIf="clickedCard">{{ guess3 }}</p>
+    </div>
+  </div>
+
+  <div class="row" *ngIf="attempts === 10">
+    <p class="para">Result : {{ result }}</p>
+    <p class="para">Your Score : {{ luckyAttempt }}</p>
+  </div>
+
+  <div class="row shift" *ngIf="message">
+    <p class="para ">{{ message }}</p>
+    <p class="shiftButton" (click)="gameReset()" class="btn btn-danger">
+      Reset
+    </p>
+  </div>
+  <
+</div>
+
+<app-footer></app-footer>

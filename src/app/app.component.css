@@ -1,0 +1,69 @@
+.box {
+  height: 180px;
+  width: 29%;
+  background-color: pink;
+  margin: auto 20px;
+  text-align: center;
+  border-radius: 10px;
+}
+.score {
+  /* border: 2px solid red; */
+  text-align: center;
+  margin: 0px;
+  padding: 0%;
+  line-height: 45%;
+}
+.disablePointer {
+  pointer-events: none;
+  /* background-color: blue; */
+}
+.enablePointer {
+  pointer-events: auto;
+}
+.bggreen {
+  background-color: green;
+}
+.bgred {
+  background-color: red;
+}
+h1 {
+  font-family: "IBM Plex Serif", serif;
+  /* font-family: "Ubuntu", sans-serif; */
+  color: #ff0066;
+  text-align: center;
+  font-size: 50px;
+  font-weight: bold;
+  border: 3px dotted red;
+}
+.para {
+  font-family: "IBM Plex Serif", serif;
+  /* font-family: "Ubuntu", sans-serif; */
+  color: #ff0066;
+  text-align: center;
+  font-size: 25px;
+  font-weight: normal;
+}
+.number {
+  font-size: 35px;
+}
+.centreText {
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #ff0066;
+  font-family: "IBM Plex Serif", serif;
+  font-size: 50px;
+  font-weight: bold;
+}
+
+.shift {
+  float: right;
+}
+.shiftButton {
+  float: right;
+  display: block;
+  margin-right: 0px;
+  clear: left;
+}
